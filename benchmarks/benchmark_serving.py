@@ -103,7 +103,7 @@ def calculate_metrics(
     completed = sum(1 for output in outputs if output.success)
     total_requests = len(input_requests)
     total_input_tokens = sum(request['input_length'] for request in input_requests)
-    total_output_tokens = sum(len(output.generated_text.split()) for output in outputs if output.success)
+    total_output_tokens = sum(len(output.itl) for output in outputs if output.success)
     
     slo_attained = 0
     slo_output_tokens = 0
